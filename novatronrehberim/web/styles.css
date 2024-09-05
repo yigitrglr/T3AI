@@ -36,6 +36,13 @@ body {
     font-weight: bold;
 }
 
+#logo {
+    max-width: 150%;
+    max-height: 150%;
+    text-align: right;
+    padding-left: 70.8vw;
+}
+
 #buttons {
     display: flex;
     justify-content: center;;

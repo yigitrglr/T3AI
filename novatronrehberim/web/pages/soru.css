@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    background-color: hsl(0, 0%, 90%);
+}
+
+#header-box {
+    display: flex;
+    min-width: 100vw;
+    height: 8vh;
+    align-items: center;
+    background-color: #2b3b5e;
+}
+
+#header-text {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    font-size: 2rem;
+    padding-left: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+#header-page {
+    font-family: Arial, sand-serif;
+    width: 100%;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 75px;
+}
+
+#logo {
+    max-width: 150%;
+    max-height: 150%;
+    text-align: right;
+    padding-left: 30vw;
+}

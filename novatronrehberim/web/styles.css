@@ -30,17 +30,28 @@ body {
 
 #header-text {
     font-family: Arial, sans-serif;
+    width: 100%;
     font-size: 2rem;
     padding-left: 10px;
     color: white;
     font-weight: bold;
 }
 
+#header-page {
+    font-family: Arial, sand-serif;
+    width: 100%;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 100px;
+}
+
 #logo {
     max-width: 150%;
     max-height: 150%;
     text-align: right;
-    padding-left: 70.8vw;
+    padding-left: 30vw;
 }
 
 #buttons {

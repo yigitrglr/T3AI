@@ -47,7 +47,7 @@ public class App {
         System.out.print("Çalışma programınızın süresini giriniz (kaç haftalık): ");
         int duration = scanner.nextInt();
         
-        String prompt = String.format("Lütfen %d sınıf seviyesinde %s dersi için sınıf %s seviyesinde %d haftalık detaylı bir tablo şeklinde çalışma programı oluşturun. Türkiye Cumhuriyeti Milli Eğitim Bakanlığının eğitim müfredatına göre hazırla." + "Lütfen programı maddeler halinde, açık ve anlaşılır bir şekilde yazın.", classlevel, subject, level, duration);
+        String prompt = String.format("Lütfen %d sınıf seviyesinde %s dersi için sınıf %s seviyesinde detaylı bir tablo şeklinde çalışma programı oluşturun. Türkiye Cumhuriyeti Milli Eğitim Bakanlığının eğitim müfredatına göre hazırla." + "Lütfen programı maddeler halinde, açık ve anlaşılır bir şekilde yazın.", classlevel, subject, level, duration);
                
         
         String studyProgram = getAIResponse(prompt);
@@ -91,7 +91,7 @@ public class App {
             System.out.print("Siz: ");
             String userInput = scanner.nextLine();
             
-            if (userInput.equalsIgnoreCase("çıkış")) {
+            if (userInput.equalsIgnoreCase("quit")) {
                 System.out.println("Chatbot: Görüşmek üzere!");
                 break;
             }

@@ -68,11 +68,11 @@ public class App {
                         .put("role", "user")
                         .put("content", prompt)
                 })
-                .put("temperature", 0.06) // 0.6
+                .put("temperature", 0.6) // 0.6
                 .put("top_p", 0.85) // 0.85
-                .put("max_tokens", 500) // 500
+                .put("max_tokens", 200) // 500
                 .put("skip_special_tokens", true) // true
-                .put("repetition_penalty", 1.20) // 1.20
+                .put("repetition_penalty", 1.2) // 1.20
                 .put("top_k", 32.0); // 34
 
         HttpRequest request = HttpRequest.newBuilder()

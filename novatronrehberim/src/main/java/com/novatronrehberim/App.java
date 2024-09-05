@@ -18,6 +18,10 @@ public class App {
         System.out.println("AI Çalışma Programı Oluşturucusuna Hoşgeldiniz!");
         System.out.print("Çalışmak istediğiniz dersi giriniz: ");
         String subject = scanner.nextLine();
+
+        System.out.println("Sınıf seviyenizi giriniz: ");
+        int classlevel = scanner.nextInt();
+        scanner.nextLine();
         
         System.out.print("Bilgi seviyenizi giriniz (az/orta/yüksek): ");
         String level = scanner.nextLine();
@@ -25,14 +29,8 @@ public class App {
         System.out.print("Çalışma programınızın süresini giriniz (kaç haftalık): ");
         int duration = scanner.nextInt();
         
-        String prompt = String.format("Lütfen %s dersi için %s seviyesinde %d haftalık detaylı bir çalışma programı oluşturun. Program şunları içermelidir:\n" +
-                "1. Her hafta için net öğrenme hedefleri\n" +
-                "2. Haftalık konu başlıkları ve alt başlıklar\n" +
-                "3. Her hafta için önerilen ders kitapları, online kaynaklar ve videolar\n" +
-                "4. Haftada en az 3 pratik alıştırma veya ödev önerisi\n" +
-                "5. Her haftanın sonunda ilerlemeyi ölçmek için kısa bir değerlendirme\n" +
-                "6. Ek olarak, motivasyonu artırmak için haftalık çalışma ipuçları\n" +
-                "Lütfen programı maddeler halinde, açık ve anlaşılır bir şekilde yazın.", subject, level, duration);
+        String prompt = String.format("Lütfen %d sınıf seviyesinde %s dersi için sınıf %s seviyesinde %d haftalık detaylı bir tablo şeklinde çalışma programı oluşturun. Türkiye Cumhuriyeti Milli Eğitim Bakanlığının eğitim müfredatına göre hazırla." + "Lütfen programı maddeler halinde, açık ve anlaşılır bir şekilde yazın.", classlevel, subject, level, duration);
+               
         
         String studyProgram = getAIResponse(prompt);
         System.out.println("\nİşte kişiselleştirilmiş çalışma programınız:\n");

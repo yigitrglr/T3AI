@@ -4,15 +4,12 @@ import java.util.Scanner;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.lang.module.Configuration;
 import java.net.URI;
 import org.json.JSONObject;
-import org.apache.taglibs.standard.lang.jstl.test.beans.PublicInterface2;
-import org.json.JSONArray;
 
 public class App {
-    private static final String AI_API_URL = "https://inference.t3ai.org/v1/chat/completions";
-    private static final String API_KEY = "t3ai";
+    private static final String AI_API_URL = "https://inference2.t3ai.org/v1/completions";
+    // private static final String API_KEY = "t3ai";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -63,7 +60,7 @@ public class App {
     private static String getAIResponse(String prompt, double temperature, double topP, int maxTokens) {
         HttpClient client = HttpClient.newHttpClient();
         JSONObject requestBody = new JSONObject()
-                .put("model", "/vllm-workspace/hackathon_model_2")
+                .put("model", "/home/ubuntu/hackathon_model_2/")
                 .put("messages", new JSONObject[] { new JSONObject()
                         .put("role", "user")
                         .put("content", prompt)
@@ -78,7 +75,7 @@ public class App {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(AI_API_URL))
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer " + API_KEY)
+                //.header("Authorization", "Bearer " + API_KEY)
                 .POST(HttpRequest.BodyPublishers.ofString(requestBody.toString()))
                 .build();
 

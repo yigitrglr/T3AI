@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.lang.module.Configuration;
 import java.net.URI;
 import org.json.JSONObject;
 import org.json.JSONArray;
@@ -45,17 +46,17 @@ public class App {
         System.out.print("Çalışma programınızın süresini giriniz (kaç haftalık): ");
         int duration = scanner.nextInt();
         
-        String prompt = String.format("Lütfen sınıf seviyesinde %s dersi için sınıf %s seviyesinde %d haftalık detaylı bir tablo şeklinde çalışma programı oluşturun. Türkiye Cumhuriyeti Milli Eğitim Bakanlığının eğitim müfredatına göre hazırla." + "Lütfen programı maddeler halinde, açık ve anlaşılır bir şekilde yazın.", subject, level, duration);
-               
+        // String prompt = String.format("Lütfen sınıf seviyesinde %s dersi için sınıf %s seviyesinde %d haftalık detaylı bir tablo şeklinde çalışma programı oluşturun. Türkiye Cumhuriyeti Milli Eğitim Bakanlığının eğitim müfredatına göre hazırla." + "Lütfen programı maddeler halinde, açık ve anlaşılır bir şekilde yazın.", subject, level, duration);
+           String prompt = String.format("Sen bir lise fizik öğretmenisin ve öğrencilerin için bir konu anlatacaksın Konumuz şu: Açısal hız ve doğrusal hız arasındaki ilişki. Bu konuyu örneklerle nasıl anlatırsın? ");    
         
-        String studyProgram = getAIResponse(prompt);
+        String studyProgram = getAIResponse(prompt, 0.05, 0.8, 1000);
         System.out.println("\nİşte kişiselleştirilmiş çalışma programınız:\n");
         System.out.println(studyProgram);
         
         scanner.close();
     }
     
-    private static String getAIResponse(String prompt) {
+    private static String getAIResponse(String prompt, double temperature, double topP, int maxTokens) {
         HttpClient client = HttpClient.newHttpClient();
         JSONObject requestBody = new JSONObject()
             .put("model", "/vllm-workspace/hackathon_model_2")
@@ -64,7 +65,10 @@ public class App {
                     .put("role", "user")
                     .put("content", prompt)
                 }
-            );
+            )
+            .put("temperature", 0.05)
+            .put("top_p", 0.8)
+            .put("max_tokens", 1000);
         
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create(AI_API_URL))
@@ -94,7 +98,7 @@ public class App {
                 break;
             }
             
-            String response = getAIResponse(userInput);
+            String response = getAIResponse(userInput, 0.05, 0.8, 1000);
             System.out.println("Chatbot: " + response);
         }
     }

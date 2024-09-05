@@ -14,7 +14,7 @@ public class App {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+        // başlangıçta 2 seçenek olsun hem plan oluşturma hem de chatbot
         System.out.println("AI Çalışma Programı Oluşturucusuna Hoşgeldiniz!");
         System.out.print("Çalışmak istediğiniz dersi giriniz: ");
         String subject = scanner.nextLine();

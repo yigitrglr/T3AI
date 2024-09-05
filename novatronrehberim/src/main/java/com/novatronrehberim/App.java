@@ -16,6 +16,24 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         // başlangıçta 2 seçenek olsun hem plan oluşturma hem de chatbot
         System.out.println("AI Çalışma Programı Oluşturucusuna Hoşgeldiniz!");
+        System.out.println("1. Çalışma Programı Oluştur");
+        System.out.println("2. AI Chatbot ile Konuş");
+        System.out.print("Lütfen bir seçenek girin (1 veya 2): ");
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        
+        if (choice == 1) {
+            createStudyProgram(scanner);
+        } else if (choice == 2) {
+            chatWithAI(scanner);
+        } else {
+            System.out.println("Geçersiz seçenek. Lütfen 1 veya 2 girin.");
+        }
+        
+        scanner.close();
+    }
+    
+    private static void createStudyProgram(Scanner scanner) {
         System.out.print("Çalışmak istediğiniz dersi giriniz: ");
         String subject = scanner.nextLine();
 
@@ -64,6 +82,22 @@ public class App {
         } catch (Exception e) {
             e.printStackTrace();
             return "Error: İşlem sırasında bir hata oluştu.";
+        }
+    }
+    
+    private static void chatWithAI(Scanner scanner) {
+        System.out.println("AI Chatbot'a Hoşgeldiniz! Çıkmak için 'quit' yazın.");
+        while (true) {
+            System.out.print("Siz: ");
+            String userInput = scanner.nextLine();
+            
+            if (userInput.equalsIgnoreCase("çıkış")) {
+                System.out.println("Chatbot: Görüşmek üzere!");
+                break;
+            }
+            
+            String response = getAIResponse(userInput);
+            System.out.println("Chatbot: " + response);
         }
     }
 }

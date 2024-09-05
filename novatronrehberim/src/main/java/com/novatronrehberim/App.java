@@ -68,12 +68,12 @@ public class App {
                         .put("role", "user")
                         .put("content", prompt)
                 })
-                .put("temperature", 0.6)
-                .put("top_p", 0.85)
-                .put("max_tokens", 500)
-                .put("skip_special_tokens", true)
-                .put("repetition_penalty", 1.15)
-                .put("top_k", 37.0);
+                .put("temperature", 0.06) // 0.6
+                .put("top_p", 0.85) // 0.85
+                .put("max_tokens", 500) // 500
+                .put("skip_special_tokens", true) // true
+                .put("repetition_penalty", 1.20) // 1.20
+                .put("top_k", 32.0); // 34
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(AI_API_URL))

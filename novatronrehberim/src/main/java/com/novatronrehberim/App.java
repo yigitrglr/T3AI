@@ -45,11 +45,7 @@ public class App {
         System.out.print("Çalışma programınızın süresini giriniz (kaç haftalık): ");
         int duration = scanner.nextInt();
         
-<<<<<<< HEAD
         String prompt = String.format("Lütfen sınıf seviyesinde %s dersi için sınıf %s seviyesinde %d haftalık detaylı bir tablo şeklinde çalışma programı oluşturun. Türkiye Cumhuriyeti Milli Eğitim Bakanlığının eğitim müfredatına göre hazırla." + "Lütfen programı maddeler halinde, açık ve anlaşılır bir şekilde yazın.", subject, level, duration);
-=======
-        String prompt = String.format("Lütfen %d sınıf seviyesinde %s dersi için sınıf %s seviyesinde detaylı bir tablo şeklinde çalışma programı oluşturun. Türkiye Cumhuriyeti Milli Eğitim Bakanlığının eğitim müfredatına göre hazırla." + "Lütfen programı maddeler halinde, açık ve anlaşılır bir şekilde yazın.", classlevel, subject, level, duration);
->>>>>>> 6d2d32199a52a0e24b4c21dae3571ff3bfa8c3d7
                
         
         String studyProgram = getAIResponse(prompt);

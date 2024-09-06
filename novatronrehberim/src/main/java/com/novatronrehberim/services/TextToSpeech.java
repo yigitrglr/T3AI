@@ -3,12 +3,10 @@ package com.novatronrehberim.services;
 import kong.unirest.HttpResponse;
 import kong.unirest.Unirest;
 import kong.unirest.json.JSONObject;
-
 import java.io.FileOutputStream;
 
 public class TextToSpeech {
-    private static final String XI_API_KEY = "\r\n" + //
-                "sk_ce0fbd141ee5fe0cefd38bf3ced2eeaf24a2590e1b27126e";
+    private static final String XI_API_KEY = "sk_ce0fbd141ee5fe0cefd38bf3ced2eeaf24a2590e1b27126e";         
     private static final String VOICE_ID = "e3yyhgCMd5vwBY6JdxQC"; // e3yyhgCMd5vwBY6JdxQC
 
     public void generateSpeech(String textToSpeak, String outputFilePath) {

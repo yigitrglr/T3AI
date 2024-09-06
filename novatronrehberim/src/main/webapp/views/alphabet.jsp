@@ -34,7 +34,7 @@
       </form>
         <div id="display" readonly>
           <audio controls>
-            <source src="C:/output.mpeg" type="audio/mpeg">
+            <source src="${pageContext.request.contextPath}/resources/audio/output.mpeg?timestamp=${System.currentTimeMillis()}" type="audio/mpeg">
           </audio>
 
           <p><%= request.getAttribute("aiResponse") %></p>

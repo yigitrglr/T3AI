@@ -3,6 +3,8 @@ package com.novatronrehberim.services;
 import kong.unirest.HttpResponse;
 import kong.unirest.Unirest;
 import kong.unirest.json.JSONObject;
+
+import java.io.File;
 import java.io.FileOutputStream;
 
 public class TextToSpeech {
@@ -37,13 +39,5 @@ public class TextToSpeech {
         } catch (Exception e) {
             System.err.println("Error generating speech: " + e.getMessage());
         }
-    }
-
-    public  void generate(String txt){
-        TextToSpeech tts = new TextToSpeech();
-        int sayi = 1;
-        String textToSpeak = txt;
-        String outputFilePath = "C:/output.mpeg";
-        tts.generateSpeech(textToSpeak, outputFilePath);
     }
 }

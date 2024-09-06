@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com\novatronrehberim\LLM$AnswerResult.class
 com\novatronrehberim\controllers\AskController.class
 com\novatronrehberim\controllers\HomeController.class
@@ -5,3 +6,6 @@ com\novatronrehberim\services\QuestionService.class
 com\novatronrehberim\models\TestQuestion.class
 com\novatronrehberim\LLM.class
 com\novatronrehberim\models\TestResults.class
+=======
+com\novatronrehberim\App.class
+>>>>>>> e0e992b83451b712b4f281e84b0523e83c45d123

@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class LLM {
     private static final Scanner scanner = new Scanner(System.in);
@@ -45,7 +46,7 @@ public class LLM {
         return scanner.nextInt();
     }
 
-    private static String sendPostRequest(String urlString, String payload) throws Exception {
+    public static String sendPostRequest(String urlString, String payload) throws Exception {
         URL url = new URL(urlString);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("POST");
@@ -132,11 +133,11 @@ public class LLM {
         System.out.println("Skorunuz 21 üzerinden: " + score);
     }
     // Soruların doğru veya yanlış olmasını kontrol etme
-    private static class AnswerResult {
-        boolean isCorrect;
-        String correctAnswer;
+    public static class AnswerResult {
+        public boolean isCorrect;
+        public String correctAnswer;
 
-        AnswerResult(boolean isCorrect, String correctAnswer) {
+        public AnswerResult(boolean isCorrect, String correctAnswer) {
             this.isCorrect = isCorrect;
             this.correctAnswer = correctAnswer;
         }
@@ -169,7 +170,7 @@ public class LLM {
         return getLLMResponse(jsonData);
     }
     // Sorular için
-    private static String getPhysicsTest(String prompt) {
+    public static String getPhysicsTest(String prompt) {
         JSONArray jsonData = new JSONArray()
             .put(new JSONObject()
                 .put("role", "system")
@@ -223,12 +224,11 @@ public class LLM {
         return output.toString();
     }
 
-    private static String generateUserId() {
-        // Implement a method to generate or retrieve a unique user ID
-        return "user_" + System.currentTimeMillis();
+    public static String generateUserId() {
+        return UUID.randomUUID().toString();
     }
 
-    private static InteractionLogger.UserFeedback getUserFeedback() {
+    public static InteractionLogger.UserFeedback getUserFeedback() {
         // Implement a method to get user feedback
         System.out.print("Rate the response (like/dislike): ");
         String rating = scanner.nextLine();

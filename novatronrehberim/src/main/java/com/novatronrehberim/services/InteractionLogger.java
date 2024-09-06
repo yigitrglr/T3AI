@@ -3,7 +3,6 @@ package com.novatronrehberim.services;
 import java.time.Instant;
 import java.util.UUID;
 import org.json.JSONObject;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;

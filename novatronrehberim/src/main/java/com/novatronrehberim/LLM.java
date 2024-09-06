@@ -79,13 +79,15 @@ public class LLM {
                 break;
             }
 
-            String response = getChatbotResponse(question);
-            System.out.println("Chatbot: " + response);
+            String encodedQuestion = encodeString(question);
+            String response = getChatbotResponse(encodedQuestion);
+            String encodedResponse = encodeString(response);
+            System.out.println("Chatbot: " + encodedResponse);
 
             // Log the interaction
             InteractionLogger.UserFeedback feedback = getUserFeedback();
             InteractionLogger.FeedbackMetadata metadata = getFeedbackMetadata(startTime);
-            JSONObject log = InteractionLogger.logInteraction(userId, question, response, feedback, metadata);
+            JSONObject log = InteractionLogger.logInteraction(userId, encodedQuestion, encodedResponse, feedback, metadata);
             
             // Here you would typically send this log to a database or file
             System.out.println("Interaction logged: " + log.toString(2));
@@ -247,5 +249,9 @@ public class LLM {
         metadata.setLocation("unknown"); // You might want to implement location detection
         metadata.setSessionDuration((System.currentTimeMillis() - startTime) / 1000); // Duration in seconds
         return metadata;
+    }
+
+    private static String encodeString(String input) {
+        return new String(input.getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
     }
 }

@@ -6,19 +6,25 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.json.JSONArray;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.StandardOpenOption;
+import org.json.JSONArray;
+import java.nio.file.Path;
 
 public class InteractionLogger {
 
-    private static final String LOG_FILE = "log.json";
+    private static String logFilePath = "log.json";
+
+    public static String LOG_FILE;
 
     public static JSONObject logInteraction(String userId, String inputPrompt, String response, 
                                             UserFeedback userFeedback, FeedbackMetadata metadata) {
         JSONObject log = createLogEntry(userId, inputPrompt, response, userFeedback, metadata);
         writeLogToFile(log);
         return log;
+    }
+
+    public static void setLogFile(String filePath) {
+        logFilePath = filePath;
     }
 
     private static JSONObject createLogEntry(String userId, String inputPrompt, String response, 
@@ -61,22 +67,25 @@ public class InteractionLogger {
         return log;
     }
 
-    private static void writeLogToFile(JSONObject logEntry) {
+    private static void writeLogToFile(JSONObject log) {
+        if (logFilePath == null || logFilePath.isEmpty()) {
+            logFilePath = "log.json";
+        }
+        
         try {
+            Path path = Paths.get(logFilePath);
             JSONArray logs;
-            if (Files.exists(Paths.get(LOG_FILE))) {
-                byte[] encodedContent = Files.readAllBytes(Paths.get(LOG_FILE));
-                String content = new String(encodedContent, StandardCharsets.UTF_8);
+            
+            if (Files.exists(path)) {
+                String content = Files.readString(path);
                 logs = new JSONArray(content);
             } else {
                 logs = new JSONArray();
             }
-
-            logs.put(logEntry);
-
-            String jsonString = logs.toString(2);
-            byte[] jsonBytes = jsonString.getBytes(StandardCharsets.UTF_8);
-            Files.write(Paths.get(LOG_FILE), jsonBytes, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+            
+            logs.put(log);
+            
+            Files.writeString(path, logs.toString(4), StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.novatronrehberim.LLMTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.331 s <<< FAILURE! -- in com.novatronrehberim.LLMTest
-com.novatronrehberim.LLMTest.testGetUserChoice -- Time elapsed: 0.290 s <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.342 s <<< FAILURE! -- in com.novatronrehberim.LLMTest
+com.novatronrehberim.LLMTest.testGetUserChoice -- Time elapsed: 0.298 s <<< ERROR!
 org.mockito.exceptions.base.MockitoException: 
 
 The used MockMaker SubclassByteBuddyMockMaker does not support the creation of static mocks

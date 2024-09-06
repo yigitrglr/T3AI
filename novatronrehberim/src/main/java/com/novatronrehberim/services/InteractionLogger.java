@@ -3,21 +3,28 @@ package com.novatronrehberim.services;
 import java.time.Instant;
 import java.util.UUID;
 import org.json.JSONObject;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.charset.StandardCharsets;
 import org.json.JSONArray;
+import java.nio.file.Path;
 
 public class InteractionLogger {
 
-    private static final String LOG_FILE = "log.json";
+    private static String logFilePath = "log.json";
+
+    public static String LOG_FILE;
 
     public static JSONObject logInteraction(String userId, String inputPrompt, String response, 
                                             UserFeedback userFeedback, FeedbackMetadata metadata) {
         JSONObject log = createLogEntry(userId, inputPrompt, response, userFeedback, metadata);
         writeLogToFile(log);
         return log;
+    }
+
+    public static void setLogFile(String filePath) {
+        logFilePath = filePath;
     }
 
     private static JSONObject createLogEntry(String userId, String inputPrompt, String response, 
@@ -35,8 +42,8 @@ public class InteractionLogger {
 
         // content_generated
         JSONObject contentGenerated = new JSONObject();
-        contentGenerated.put("input_prompt", inputPrompt);
-        contentGenerated.put("response", response);
+        contentGenerated.put("input_prompt", new String(inputPrompt.getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8));
+        contentGenerated.put("response", new String(response.getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8));
         log.put("content_generated", contentGenerated);
 
         // user_feedback
@@ -60,21 +67,25 @@ public class InteractionLogger {
         return log;
     }
 
-    private static void writeLogToFile(JSONObject logEntry) {
+    private static void writeLogToFile(JSONObject log) {
+        if (logFilePath == null || logFilePath.isEmpty()) {
+            logFilePath = "log.json";
+        }
+        
         try {
+            Path path = Paths.get(logFilePath);
             JSONArray logs;
-            if (Files.exists(Paths.get(LOG_FILE))) {
-                String content = new String(Files.readAllBytes(Paths.get(LOG_FILE)));
+            
+            if (Files.exists(path)) {
+                String content = Files.readString(path);
                 logs = new JSONArray(content);
             } else {
                 logs = new JSONArray();
             }
-
-            logs.put(logEntry);
-
-            try (FileWriter file = new FileWriter(LOG_FILE)) {
-                file.write(logs.toString(2));
-            }
+            
+            logs.put(log);
+            
+            Files.writeString(path, logs.toString(4), StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         }

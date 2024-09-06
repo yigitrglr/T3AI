@@ -39,11 +39,11 @@ public class TextToSpeech {
         }
     }
 
-    public static void main(String[] args){
+    public  void generate(String txt){
         TextToSpeech tts = new TextToSpeech();
         int sayi = 1;
-        String textToSpeak = "merhaba ben onur can";
-        String outputFilePath = "output" + ++sayi + ".mp3";
+        String textToSpeak = txt;
+        String outputFilePath = "C:/output.mpeg";
         tts.generateSpeech(textToSpeak, outputFilePath);
     }
 }

@@ -36,6 +36,8 @@ public class AlphabetController extends HttpServlet {
 
             request.setAttribute("aiResponse", aiResponse);
 
+            voice.generate(aiResponse);
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("/views/alphabet.jsp");
             dispatcher.forward(request, response);
 

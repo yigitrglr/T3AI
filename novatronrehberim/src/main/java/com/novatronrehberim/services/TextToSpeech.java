@@ -5,7 +5,6 @@ import kong.unirest.Unirest;
 import kong.unirest.json.JSONObject;
 
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class TextToSpeech {
     private static final String XI_API_KEY = "sk_783a0fac87015be980018b3c01fb4cc044f7f74ded671916";

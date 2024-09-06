@@ -70,5 +70,23 @@
         },
         "interaction_id": "5ee3d8f9-d0ce-4961-9135-c3762a6deba3",
         "timestamp": "2024-09-06T14:36:53.661069300Z"
+    },
+    {
+        "user_feedback": {
+            "rating": "like",
+            "feedback_text": ""
+        },
+        "content_generated": {
+            "input_prompt": "Piramitler nerede?",
+            "response": "Giza Piramitleri, Mısır'da bulunur.\nGiza Piramitleri, Kahire'nin yaklaşık 20 kilometre güneybatısında yer alan Giza platosunda bulunmaktadır."
+        },
+        "user_id": "e05d8528-a9a1-4fd4-acae-69b9fb496d2c",
+        "feedback_metadata": {
+            "location": "bilinmyen",
+            "device": "win-desktop",
+            "session_duration": 25
+        },
+        "interaction_id": "e031b78b-db6f-4e90-b71c-09df013da287",
+        "timestamp": "2024-09-06T19:12:19.470352Z"
     }
 ]

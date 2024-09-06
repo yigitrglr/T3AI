@@ -9,6 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import java.time.Instant;
 
 public class LLM {
     private static final Scanner scanner = new Scanner(System.in);
@@ -35,7 +36,7 @@ public class LLM {
         }
     }
 
-    private static int getUserChoice() {
+    public static int getUserChoice() {
         System.out.println("\nYKS Çalışma Programına Hoş geldiniz!");
         System.out.println("1. ChatBot olarak kullanın");
         System.out.println("2. YKS Ders Programı");
@@ -45,30 +46,33 @@ public class LLM {
     }
 
     private static String sendPostRequest(String urlString, String payload) throws Exception {
-    URL url = new URL(urlString);
-    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-    conn.setRequestMethod("POST");
-    conn.setRequestProperty("Content-Type", "application/json");
-    conn.setDoOutput(true);
+        URL url = new URL(urlString);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("POST");
+        conn.setRequestProperty("Content-Type", "application/json");
+        conn.setDoOutput(true);
 
-    // Türkçeden dolayı UTF-8 charset
-    try (OutputStream os = conn.getOutputStream()) {
-        byte[] input = payload.getBytes(StandardCharsets.UTF_8);
-        os.write(input, 0, input.length);
-    }
-
-    try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
-        StringBuilder response = new StringBuilder();
-        String responseLine;
-        while ((responseLine = br.readLine()) != null) {
-            response.append(responseLine.trim());
+        // Türkçeden dolayı UTF-8 charset
+        try (OutputStream os = conn.getOutputStream()) {
+            byte[] input = payload.getBytes(StandardCharsets.UTF_8);
+            os.write(input, 0, input.length);
         }
-        return response.toString();
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+            return response.toString();
+        }
     }
-}
     // ChatBot
-    private static void runChatbot() {
+    public static void runChatbot() {
         scanner.nextLine();
+        String userId = generateUserId(); // Implement this method to generate a unique user ID
+        long startTime = System.currentTimeMillis();
+        
         while (true) {
             String question = getUserInput("Sorunuzu girin: (veya ':q' ile ana menüye dönebilirsiniz): ");
             if (question.equalsIgnoreCase(":q")) {
@@ -77,15 +81,23 @@ public class LLM {
 
             String response = getChatbotResponse(question);
             System.out.println("Chatbot: " + response);
+
+            // Log the interaction
+            InteractionLogger.UserFeedback feedback = getUserFeedback();
+            InteractionLogger.FeedbackMetadata metadata = getFeedbackMetadata(startTime);
+            JSONObject log = InteractionLogger.logInteraction(userId, question, response, feedback, metadata);
+            
+            // Here you would typically send this log to a database or file
+            System.out.println("Interaction logged: " + log.toString(2));
         }
     }
 
-    private static String getUserInput(String prompt) {
-    System.out.print(prompt);
-    return scanner.nextLine();
-}
+    public static String getUserInput(String prompt) {
+        System.out.print(prompt);
+        return scanner.nextLine();
+    }
     // Fizik testi
-    private static void runPhysicsTest() {
+    public static void runPhysicsTest() {
         String prompt = "Lise yks fizik konularından 21 adet 4 şıklı test sorusu hazırla. Soruların seçeneklerini yukarıdan aşağıya olacak şekilde göstermelisin. Mutlaka bütün soruları olması gerektiği gibi göster";
         String testQuestions = getPhysicsTest(prompt);
         System.out.println("Fizik Testi:\n" + testQuestions);
@@ -128,7 +140,7 @@ public class LLM {
         }
     }
     // Soru kontrolunde LLM kısmı
-    private static AnswerResult checkAnswer(String question, String userAnswer) {
+    public static AnswerResult checkAnswer(String question, String userAnswer) {
         String prompt = "Aşağıdaki soruyu ve kullanıcının cevabını kontrol et. Cevap doğru mu? " +
                         "Eğer yanlışsa, doğru cevabı da belirt. Cevabını şu formatta ver: 'Doğru/Yanlış, (Doğru Cevap)'\n\n" +
                         "Soru:\n" + question + "\n\n" +
@@ -143,7 +155,7 @@ public class LLM {
     }
     
     // Cevaplar için
-    private static String getChatbotResponse(String question) {
+    public static String getChatbotResponse(String question) {
         JSONArray jsonData = new JSONArray()
             .put(new JSONObject()
                 .put("role", "system")
@@ -167,7 +179,7 @@ public class LLM {
         return getLLMResponse(jsonData);
     }
     // LLM Ayarları
-    private static String getLLMResponse(JSONArray jsonData) {
+    public static String getLLMResponse(JSONArray jsonData) {
         try {
             String specialFormatOutput = convertToSpecialFormat(jsonData);
 
@@ -190,23 +202,50 @@ public class LLM {
         }
     }
 
-   private static String convertToSpecialFormat(JSONArray jsonData) {
-    StringBuilder output = new StringBuilder();
-    for (int i = 0; i < jsonData.length(); i++) {
-        JSONObject entry = jsonData.getJSONObject(i);
-        String role = entry.getString("role");
-        String content = entry.getString("content");
+    public static String convertToSpecialFormat(JSONArray jsonData) {
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < jsonData.length(); i++) {
+            JSONObject entry = jsonData.getJSONObject(i);
+            String role = entry.getString("role");
+            String content = entry.getString("content");
 
-        if (role.equals("system")) {
-            output.append(String.format("<|im_start|>system\n%s<|im_end|>\n", content));
-        } else if (role.equals("user")) {
-            output.append(String.format("<|im_start|>human\n%s<|im_end|>\n", content));
-        } else if (role.equals("assistant")) {
-            output.append(String.format("<|im_start|>assistant\n%s<|im_end|>\n", content));
+            if (role.equals("system")) {
+                output.append(String.format("<|im_start|>system\n%s<|im_end|>\n", content));
+            } else if (role.equals("user")) {
+                output.append(String.format("<|im_start|>human\n%s<|im_end|>\n", content));
+            } else if (role.equals("assistant")) {
+                output.append(String.format("<|im_start|>assistant\n%s<|im_end|>\n", content));
+            }
         }
+        output.append("<|im_start|>assistant\n");
+        return output.toString();
     }
-    output.append("<|im_start|>assistant\n");
-    return output.toString();
-}
 
+    private static String generateUserId() {
+        // Implement a method to generate or retrieve a unique user ID
+        return "user_" + System.currentTimeMillis();
+    }
+
+    private static InteractionLogger.UserFeedback getUserFeedback() {
+        // Implement a method to get user feedback
+        System.out.print("Rate the response (like/dislike): ");
+        String rating = scanner.nextLine();
+        System.out.print("Any additional feedback? ");
+        String feedbackText = scanner.nextLine();
+        
+        InteractionLogger.UserFeedback feedback = new InteractionLogger.UserFeedback();
+        feedback.setRating(rating);
+        feedback.setFeedbackText(feedbackText);
+        // You can also ask for preferred_response if the user dislikes the answer
+        return feedback;
+    }
+
+    private static InteractionLogger.FeedbackMetadata getFeedbackMetadata(long startTime) {
+        // Implement a method to get feedback metadata
+        InteractionLogger.FeedbackMetadata metadata = new InteractionLogger.FeedbackMetadata();
+        metadata.setDevice("desktop"); // Or get this from system properties
+        metadata.setLocation("unknown"); // You might want to implement location detection
+        metadata.setSessionDuration((System.currentTimeMillis() - startTime) / 1000); // Duration in seconds
+        return metadata;
+    }
 }

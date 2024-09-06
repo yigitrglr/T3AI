@@ -1,17 +1,6 @@
-<<<<<<< HEAD
-C:\Users\Lenovo\Desktop\NovatronRehberim\novatronrehberim\src\main\java\com\novatronrehberim\LLM.java
-C:\Users\Lenovo\Desktop\NovatronRehberim\novatronrehberim\src\main\java\com\novatronrehberim\controllers\ScheduleController.java
-C:\Users\Lenovo\Desktop\NovatronRehberim\novatronrehberim\src\main\java\com\novatronrehberim\models\TestQuestion.java
-C:\Users\Lenovo\Desktop\NovatronRehberim\novatronrehberim\src\main\java\com\novatronrehberim\models\TestResults.java
-C:\Users\Lenovo\Desktop\NovatronRehberim\novatronrehberim\src\main\java\com\novatronrehberim\controllers\AskController.java
-C:\Users\Lenovo\Desktop\NovatronRehberim\novatronrehberim\src\main\java\com\novatronrehberim\services\QuestionService.java
-C:\Users\Lenovo\Desktop\NovatronRehberim\novatronrehberim\src\main\java\com\novatronrehberim\controllers\HomeController.java
-=======
-c:\Users\pc\Desktop\T3AI\novatronrehberim\src\main\java\com\novatronrehberim\models\TestQuestion.java
-c:\Users\pc\Desktop\T3AI\novatronrehberim\src\main\java\com\novatronrehberim\services\QuestionService.java
 c:\Users\pc\Desktop\T3AI\novatronrehberim\src\main\java\com\novatronrehberim\controllers\HomeController.java
-c:\Users\pc\Desktop\T3AI\novatronrehberim\src\main\java\com\novatronrehberim\models\TestResults.java
 c:\Users\pc\Desktop\T3AI\novatronrehberim\src\main\java\com\novatronrehberim\LLM.java
-c:\Users\pc\Desktop\T3AI\novatronrehberim\src\main\java\com\novatronrehberim\App.java
+c:\Users\pc\Desktop\T3AI\novatronrehberim\src\main\java\com\novatronrehberim\models\AIPrompt.java
 c:\Users\pc\Desktop\T3AI\novatronrehberim\src\main\java\com\novatronrehberim\controllers\AskController.java
->>>>>>> e0e992b83451b712b4f281e84b0523e83c45d123
+c:\Users\pc\Desktop\T3AI\novatronrehberim\src\main\java\com\novatronrehberim\services\AIService.java
+c:\Users\pc\Desktop\T3AI\novatronrehberim\src\main\java\com\novatronrehberim\controllers\ScheduleController.java

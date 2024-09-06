@@ -66,6 +66,10 @@ public class AIService {
             String response = sendPostRequest("https://inference2.t3ai.org/v1/completions", payload.toString());
             JSONObject jsonResponse = new JSONObject(response);
             return jsonResponse.getJSONArray("choices").getJSONObject(0).getString("text");
+        } catch (Exception e) {
+            // Handle the exception appropriately
+            e.printStackTrace();
+            return "An error occurred while processing your request.";
         }
     }
 

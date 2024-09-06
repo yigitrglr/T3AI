@@ -1,10 +1,4 @@
 @keyframes grow {
-    from {
-      width: 300px;
-      height: 300px;
-      font-size: 3rem;
-    }
-  
     to {
       width: 400px;
       height: 400px;
@@ -73,9 +67,8 @@ body {
 .btn:hover {
     background-color:#2b3b5e;
     color: white;
-    border-color: white;
     animation-name: grow;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     transition: 0.5s;
 }

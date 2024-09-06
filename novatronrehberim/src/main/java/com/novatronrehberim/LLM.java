@@ -229,20 +229,26 @@ public class LLM {
     }
 
     public static InteractionLogger.UserFeedback getUserFeedback() {
-        // Implement a method to get user feedback
         System.out.print("Rate the response (like/dislike): ");
-        String rating = scanner.nextLine();
-        System.out.print("Any additional feedback? ");
-        String feedbackText = scanner.nextLine();
+        String rating = scanner.nextLine().toLowerCase();
         
         InteractionLogger.UserFeedback feedback = new InteractionLogger.UserFeedback();
         feedback.setRating(rating);
+        
+        if (rating.equals("dislike")) {
+            System.out.print("Please provide your preferred response: ");
+            String preferredResponse = scanner.nextLine();
+            feedback.setPreferredResponse(preferredResponse);
+        }
+        
+        System.out.print("Any additional feedback? ");
+        String feedbackText = scanner.nextLine();
         feedback.setFeedbackText(feedbackText);
-        // You can also ask for preferred_response if the user dislikes the answer
+        
         return feedback;
     }
 
-    private static InteractionLogger.FeedbackMetadata getFeedbackMetadata(long startTime) {
+    public static InteractionLogger.FeedbackMetadata getFeedbackMetadata(long startTime) {
         // Implement a method to get feedback metadata
         InteractionLogger.FeedbackMetadata metadata = new InteractionLogger.FeedbackMetadata();
         metadata.setDevice("desktop"); // Or get this from system properties

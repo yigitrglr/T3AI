@@ -249,12 +249,26 @@ public class LLM {
     }
 
     public static InteractionLogger.FeedbackMetadata getFeedbackMetadata(long startTime) {
-        // Implement a method to get feedback metadata
         InteractionLogger.FeedbackMetadata metadata = new InteractionLogger.FeedbackMetadata();
-        metadata.setDevice("desktop"); // Or get this from system properties
-        metadata.setLocation("unknown"); // You might want to implement location detection
+        metadata.setDevice(getDeviceType());
+        metadata.setLocation("bilinmyen");
         metadata.setSessionDuration((System.currentTimeMillis() - startTime) / 1000); // Duration in seconds
         return metadata;
+    }
+
+    private static String getDeviceType() {
+        String os = System.getProperty("os.name").toLowerCase();
+        if (os.contains("win")) {
+            return "win-desktop";
+        } else if (os.contains("mac")) {
+            return "mac-desktop";
+        } else if (os.contains("android")) {
+            return "android-mobile";
+        } else if (os.contains("ios")) {
+            return "ios-mobile";
+        } else {
+            return "unknown";
+        }
     }
 
     private static String encodeString(String input) {

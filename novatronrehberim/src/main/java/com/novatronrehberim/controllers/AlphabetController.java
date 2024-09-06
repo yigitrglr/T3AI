@@ -43,7 +43,7 @@ public class AlphabetController extends HttpServlet {
             request.setAttribute("aiResponse", aiResponse);
 
             // Generate speech from the AI response
-            voice.generate(aiResponse);
+            
 
             // Check if the audio file was successfully created
 

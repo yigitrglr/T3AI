@@ -1,4 +1,4 @@
-package com.novatronrehberim;
+package com.novatronrehberim.services;
 
 import java.time.Instant;
 import java.util.UUID;

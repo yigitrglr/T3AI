@@ -2,6 +2,7 @@ package com.novatronrehberim;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import com.novatronrehberim.services.InteractionLogger;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -9,7 +10,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
-import java.time.Instant;
 
 public class LLM {
     private static final Scanner scanner = new Scanner(System.in);

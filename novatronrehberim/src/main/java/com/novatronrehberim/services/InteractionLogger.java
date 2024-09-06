@@ -3,11 +3,25 @@ package com.novatronrehberim.services;
 import java.time.Instant;
 import java.util.UUID;
 import org.json.JSONObject;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import org.json.JSONArray;
 
 public class InteractionLogger {
 
+    private static final String LOG_FILE = "log.json";
+
     public static JSONObject logInteraction(String userId, String inputPrompt, String response, 
                                             UserFeedback userFeedback, FeedbackMetadata metadata) {
+        JSONObject log = createLogEntry(userId, inputPrompt, response, userFeedback, metadata);
+        writeLogToFile(log);
+        return log;
+    }
+
+    private static JSONObject createLogEntry(String userId, String inputPrompt, String response, 
+                                             UserFeedback userFeedback, FeedbackMetadata metadata) {
         JSONObject log = new JSONObject();
 
         // interaction_id
@@ -44,6 +58,26 @@ public class InteractionLogger {
         }
 
         return log;
+    }
+
+    private static void writeLogToFile(JSONObject logEntry) {
+        try {
+            JSONArray logs;
+            if (Files.exists(Paths.get(LOG_FILE))) {
+                String content = new String(Files.readAllBytes(Paths.get(LOG_FILE)));
+                logs = new JSONArray(content);
+            } else {
+                logs = new JSONArray();
+            }
+
+            logs.put(logEntry);
+
+            try (FileWriter file = new FileWriter(LOG_FILE)) {
+                file.write(logs.toString(2));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Yardımcı classlar

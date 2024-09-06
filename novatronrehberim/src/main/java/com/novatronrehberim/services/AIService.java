@@ -1,7 +1,6 @@
 package com.novatronrehberim.services;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -11,7 +10,6 @@ import java.nio.charset.StandardCharsets;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.novatronrehberim.models.AIPrompt;
 
 public class AIService { 
     public String sendPostRequest(String urlString, String payload) throws Exception{

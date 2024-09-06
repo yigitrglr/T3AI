@@ -23,9 +23,9 @@ class AIServiceTest {
     @Test
     void testGetChatbotResponse() throws Exception {
         String prompt = "Test prompt";
-        String systemMessage = "Test system message";
-        String conversationHistory = "Test conversation history";
-        String expectedResponse = "Mocked response";
+        String systemMessage = "Test sistem mesajı";
+        String conversationHistory = "Test konuşma geçmişi";
+        String expectedResponse = "taklit cevap";
         when(aiService.getChatbotResponse(prompt, systemMessage, conversationHistory)).thenReturn(expectedResponse);
 
         String result = aiService.getChatbotResponse(prompt, systemMessage, conversationHistory);
@@ -68,8 +68,8 @@ class AIServiceTest {
     @Test
     void testSendPostRequest() throws Exception {
         String url = "https://api.example.com";
-        String requestBody = "Test request body";
-        String expectedResponse = "Mocked API response";
+        String requestBody = "api body test";
+        String expectedResponse = "taklit API cevabı";
         when(aiService.sendPostRequest(url, requestBody)).thenReturn(expectedResponse);
 
         String result = aiService.sendPostRequest(url, requestBody);

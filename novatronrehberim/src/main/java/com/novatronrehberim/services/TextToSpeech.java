@@ -7,7 +7,11 @@ import kong.unirest.json.JSONObject;
 import java.io.FileOutputStream;
 
 public class TextToSpeech {
+<<<<<<< HEAD
+    private static final String XI_API_KEY = "sk_ce0fbd141ee5fe0cefd38bf3ced2eeaf24a2590e1b27126e";
+=======
     private static final String XI_API_KEY = "sk_783a0fac87015be980018b3c01fb4cc044f7f74ded671916";
+>>>>>>> f993c057d3c7a98e276d5d9b8c7bdb5fadd9c894
     private static final String VOICE_ID = "e3yyhgCMd5vwBY6JdxQC"; // e3yyhgCMd5vwBY6JdxQC
 
     public void generateSpeech(String textToSpeak, String outputFilePath) {
@@ -42,9 +46,15 @@ public class TextToSpeech {
 
     public static void main(String[] args){
         TextToSpeech tts = new TextToSpeech();
+<<<<<<< HEAD
+        int n = 0;
+        String textToSpeak = txt;
+        String outputFilePath = "output" + ++n + ".mpeg";
+=======
         int sayi = 1;
         String textToSpeak = "merhaba ben onur can";
         String outputFilePath = "output" + ++sayi + ".mp3";
+>>>>>>> f993c057d3c7a98e276d5d9b8c7bdb5fadd9c894
         tts.generateSpeech(textToSpeak, outputFilePath);
     }
 }

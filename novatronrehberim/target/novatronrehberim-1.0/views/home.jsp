@@ -10,7 +10,7 @@
     <title>Novatron Rehberim</title>
 
     <!-- Custom styles for this template -->
-    <link href="webapp/resources/styles.css" rel="stylesheet">
+    <link href="resources/styles.css" rel="stylesheet">
   </head>
 
   <body>
@@ -22,10 +22,10 @@
 
     <div id="container">
       <div id ="buttons">
-        <a href="pages/soru.html">
+        <a href="localhost:8080/novatronrehberim/ask">
           <button class="btn">Soru Sor</button>
         </a>
-        <a href="pages/program.html">
+        <a href="localhost:8080/novatronrehberim/schedule">
         <button class="btn">Çalışma Programı Hazırla</button>
         </a>
       </div>

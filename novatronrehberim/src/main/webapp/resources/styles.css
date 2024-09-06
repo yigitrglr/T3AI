@@ -38,13 +38,12 @@ body {
 }
 
 #header-page {
+    position: absolute;
     font-family: Arial, sand-serif;
     width: 100%;
     font-size: 2rem;
     color: white;
-    font-weight: bold;
     text-align: center;
-    padding-left: 100px;
 }
 
 #logo {

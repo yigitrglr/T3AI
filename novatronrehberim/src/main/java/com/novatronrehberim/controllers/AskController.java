@@ -14,7 +14,7 @@ public class AskController extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException
     {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("novatronrehberim/webapp/WEB-INF/views/ask.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("views/ask.jsp");
         dispatcher.forward(request, response);
     }
 

@@ -24,18 +24,15 @@ body {
 }
 
 #header-page {
+    position: absolute;
     font-family: Arial, sand-serif;
     width: 100%;
     font-size: 2rem;
     color: white;
-    font-weight: bold;
     text-align: center;
-    padding-left: 75px;
 }
 
 #logo {
-    max-width: 150%;
-    max-height: 150%;
-    text-align: right;
-    padding-left: 30vw;
+    max-width: 90px;
+    max-height: 90px;
 }

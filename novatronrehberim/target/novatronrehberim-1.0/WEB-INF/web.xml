@@ -20,7 +20,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>HomeController</servlet-name>
-		<url-pattern>/home</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>AskController</servlet-name>
@@ -30,4 +30,12 @@
 		<servlet-name>ScheduleController</servlet-name>
 		<url-pattern>/schedule</url-pattern>
 	</servlet-mapping>
+	
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+		</jsp-property-group>
+	</jsp-config>
+
 </web-app>

@@ -10,22 +10,22 @@ public class InteractionLogger {
                                             UserFeedback userFeedback, FeedbackMetadata metadata) {
         JSONObject log = new JSONObject();
 
-        // 1. interaction_id
+        // interaction_id
         log.put("interaction_id", UUID.randomUUID().toString());
 
-        // 2. user_id
+        // user_id
         log.put("user_id", userId);
 
-        // 3. timestamp
+        // timestamp
         log.put("timestamp", Instant.now().toString());
 
-        // 4. content_generated
+        // content_generated
         JSONObject contentGenerated = new JSONObject();
         contentGenerated.put("input_prompt", inputPrompt);
         contentGenerated.put("response", response);
         log.put("content_generated", contentGenerated);
 
-        // 5. user_feedback
+        // user_feedback
         if (userFeedback != null) {
             JSONObject feedback = new JSONObject();
             feedback.put("rating", userFeedback.getRating());
@@ -34,7 +34,7 @@ public class InteractionLogger {
             log.put("user_feedback", feedback);
         }
 
-        // 6. feedback_metadata
+        // feedback_metadata
         if (metadata != null) {
             JSONObject feedbackMetadata = new JSONObject();
             feedbackMetadata.put("device", metadata.getDevice());
@@ -46,11 +46,11 @@ public class InteractionLogger {
         return log;
     }
 
-    // Helper classes
+    // Yardımcı classlar
     public static class UserFeedback {
         private String rating;
         private String feedbackText;
-        private String preferredResponse; // Add this field
+        private String preferredResponse;
 
         public void setRating(String rating) {
             this.rating = rating;
@@ -76,7 +76,6 @@ public class InteractionLogger {
             return rating;
         }
 
-        // Add getters if needed
     }
 
     public static class FeedbackMetadata {

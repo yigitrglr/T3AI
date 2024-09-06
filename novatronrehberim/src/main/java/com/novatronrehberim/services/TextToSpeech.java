@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class TextToSpeech {
-    private static final String XI_API_KEY = "sk_9f1eba9410f0cfb1f06a597d3483404462fb6cf9773d116d";
+    private static final String XI_API_KEY = "sk_ce0fbd141ee5fe0cefd38bf3ced2eeaf24a2590e1b27126e";
     private static final String VOICE_ID = "e3yyhgCMd5vwBY6JdxQC"; // e3yyhgCMd5vwBY6JdxQC
 
     public void generateSpeech(String textToSpeak, String outputFilePath) {
@@ -41,9 +41,9 @@ public class TextToSpeech {
 
     public void generate(String txt){
         TextToSpeech tts = new TextToSpeech();
-        
+        int n = 0;
         String textToSpeak = txt;
-        String outputFilePath = System.getProperty("java.io.tmpdir") + "/output.mpeg";
+        String outputFilePath = "output" + ++n + ".mpeg";
         tts.generateSpeech(textToSpeak, outputFilePath);
     }
 }

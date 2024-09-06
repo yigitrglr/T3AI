@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class LLM {
     private static final Scanner scanner = new Scanner(System.in);
 
-   /*  public static void main(String[] args) {
+    public static void main(String[] args) {
         try {
             while (true) {
                 int choice = getUserChoice();
@@ -34,7 +34,7 @@ public class LLM {
             scanner.close();
         }
     }
-*/
+
     private static int getUserChoice() {
         System.out.println("\nYKS Çalışma Programına Hoş geldiniz!");
         System.out.println("1. ChatBot olarak kullanın");
@@ -65,8 +65,9 @@ public class LLM {
         return response.toString();
     }
 }
+    // ChatBot
     private static void runChatbot() {
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
         while (true) {
             String question = getUserInput("Sorunuzu girin: (veya ':q' ile ana menüye dönebilirsiniz): ");
             if (question.equalsIgnoreCase(":q")) {
@@ -82,12 +83,13 @@ public class LLM {
     System.out.print(prompt);
     return scanner.nextLine();
 }
+    // Fizik testi
     private static void runPhysicsTest() {
         String prompt = "Lise yks fizik konularından 21 adet 4 şıklı test sorusu hazırla. Soruların seçeneklerini yukarıdan aşağıya olacak şekilde göstermelisin. Mutlaka bütün soruları olması gerektiği gibi göster";
         String testQuestions = getPhysicsTest(prompt);
         System.out.println("Fizik Testi:\n" + testQuestions);
 
-        // Parse correct answers
+        // Doğru cevapları bulma
         String[] questions = testQuestions.split("\n\n");
         String[] correctAnswers = new String[21];
         for (int i = 0; i < questions.length; i++) {
@@ -98,7 +100,7 @@ public class LLM {
             }
         }
 
-        // Scoring system
+        // Skor sistemi
         int score = 0;
         for (int i = 0; i < 21; i++) {
             String answer = getUserInput("Soru " + (i + 1) + " için cevabınızı girin (A, B, C, veya D): ");
@@ -114,7 +116,7 @@ public class LLM {
 
         System.out.println("Skorunuz 21 üzerinden: " + score);
     }
-
+    // soruların doğru veya yanlış olmasını kontrol etme
     private static class AnswerResult {
         boolean isCorrect;
         String correctAnswer;
@@ -124,10 +126,10 @@ public class LLM {
             this.correctAnswer = correctAnswer;
         }
     }
-
+    // Soru kontrolunde LLM kısmı
     private static AnswerResult checkAnswer(String question, String userAnswer) {
         String prompt = "Aşağıdaki soruyu ve kullanıcının cevabını kontrol et. Cevap doğru mu? " +
-                        "Eğer yanlışsa, doğru cevabı da belirt. Cevabını şu formatta ver: 'Doğru/Yanlış, Doğru Cevap'\n\n" +
+                        "Eğer yanlışsa, doğru cevabı da belirt. Cevabını şu formatta ver: 'Doğru/Yanlış, (Doğru Cevap)'\n\n" +
                         "Soru:\n" + question + "\n\n" +
                         "Kullanıcının cevabı: " + userAnswer;
 
@@ -162,7 +164,7 @@ public class LLM {
 
         return getLLMResponse(jsonData);
     }
-
+    // LLM Settings
     private static String getLLMResponse(JSONArray jsonData) {
         try {
             String specialFormatOutput = convertToSpecialFormat(jsonData);
@@ -170,10 +172,10 @@ public class LLM {
             JSONObject payload = new JSONObject()
                 .put("model", "/home/ubuntu/hackathon_model_2/")
                 .put("prompt", specialFormatOutput)
-                .put("temperature", 0.01)
-                .put("top_p", 0.95)
+                .put("temperature", 0.01) 
+                .put("top_p", 0.95) // pref 0.8
                 .put("max_tokens", 2048) // default: 1024
-                .put("repetition_penalty", 1.1)
+                .put("repetition_penalty", 1.1) // pref 1.2
                 .put("stop_token_ids", new JSONArray().put(128001).put(128009))
                 .put("skip_special_tokens", true);
 

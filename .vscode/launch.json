@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TextToSpeech",
+            "request": "launch",
+            "mainClass": "com.novatronrehberim.services.TextToSpeech",
+            "projectName": "novatronrehberim"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

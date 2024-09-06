@@ -5,8 +5,10 @@ import kong.unirest.Unirest;
 import kong.unirest.json.JSONObject;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class TextToSpeech {
-    private static final String XI_API_KEY = "sk_9f1eba9410f0cfb1f06a597d3483404462fb6cf9773d116d";
+    private static final String XI_API_KEY = "sk_783a0fac87015be980018b3c01fb4cc044f7f74ded671916";
     private static final String VOICE_ID = "e3yyhgCMd5vwBY6JdxQC"; // e3yyhgCMd5vwBY6JdxQC
 
     public void generateSpeech(String textToSpeak, String outputFilePath) {
@@ -30,18 +32,20 @@ public class TextToSpeech {
                 try (FileOutputStream fos = new FileOutputStream(outputFilePath)) {
                     fos.write(response.getBody());
                 }
-                
-            } 
+                System.out.println("Speech generated successfully and saved to: " + outputFilePath);
+            } else {
+                System.err.println("Error generating speech: " + response.getStatus() + " " + response.getStatusText());
+            }
         } catch (Exception e) {
-
+            System.err.println("Error generating speech: " + e.getMessage());
         }
     }
 
-    public void generate(String txt){
+    public static void main(String[] args){
         TextToSpeech tts = new TextToSpeech();
-        
-        String textToSpeak = txt;
-        String outputFilePath = System.getProperty("java.io.tmpdir") + "/output.mpeg";
+        int sayi = 1;
+        String textToSpeak = "merhaba ben onur can";
+        String outputFilePath = "output" + ++sayi + ".mp3";
         tts.generateSpeech(textToSpeak, outputFilePath);
     }
 }

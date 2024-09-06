@@ -24,7 +24,7 @@ public class LLM {
                 } else if (choice == 2) {
                     runPhysicsTest();
                 } else if (choice == 3) {
-                    System.out.println("Fizik çalışma uygulamasını kullandığınız için teşekkür ederiz!");
+                    System.out.println("Ders çalışma uygulamasını kullandığınız için teşekkür ederiz!");
                     break;
                 } else {
                     System.out.println("Geçersiz seçenek. Lütfen tekrar deneyin.");

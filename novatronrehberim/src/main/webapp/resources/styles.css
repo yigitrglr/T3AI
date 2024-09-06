@@ -62,6 +62,7 @@ body {
     font-weight: bold;
     font-family: Arial, sans-serif;
     font-size: 3rem;
+    transition: 0.5s;
 }
 
 .btn:hover {
@@ -70,5 +71,4 @@ body {
     animation-name: grow;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    transition: 0.5s;
 }

@@ -1,0 +1,56 @@
+[
+  {
+    "user_feedback": {
+      "rating": "like",
+      "feedback_text": ""
+    },
+    "content_generated": {
+      "input_prompt": "Merhaba",
+      "response": "Merhaba! Bugün size nasıl yardımcı olabilirim?"
+    },
+    "user_id": "user_1725627688020",
+    "feedback_metadata": {
+      "location": "unknown",
+      "device": "desktop",
+      "session_duration": 5
+    },
+    "interaction_id": "ca1245fa-11c0-41a5-a7f0-ab841d62dd04",
+    "timestamp": "2024-09-06T13:01:33.839895100Z"
+  },
+  {
+    "user_feedback": {
+      "rating": "like",
+      "feedback_text": ""
+    },
+    "content_generated": {
+      "input_prompt": "Nasılsın",
+      "response": "Ben iyiyim, teşekkür ederim. Sana nasıl yardımcı olabilirim?"
+    },
+    "user_id": "user_1725627688020",
+    "feedback_metadata": {
+      "location": "unknown",
+      "device": "desktop",
+      "session_duration": 12
+    },
+    "interaction_id": "6983d51c-db11-4c39-af14-63efbb9827bd",
+    "timestamp": "2024-09-06T13:01:40.310738600Z"
+  },
+  {
+    "user_feedback": {
+      "rating": "like",
+      "feedback_text": ""
+    },
+    "content_generated": {
+      "input_prompt": "1 sene kaç gün eder?",
+      "response": "Bir yılda 365 gün vardır, bu yüzden bir yıl 365 gün eder."
+    },
+    "user_id": "user_1725627717143",
+    "feedback_metadata": {
+      "location": "unknown",
+      "device": "desktop",
+      "session_duration": 17
+    },
+    "interaction_id": "be61e313-f088-41b6-b995-7114cdc4b06e",
+    "timestamp": "2024-09-06T13:02:14.740394200Z"
+  }
+]

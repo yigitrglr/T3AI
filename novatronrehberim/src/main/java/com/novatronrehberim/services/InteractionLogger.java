@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import org.json.JSONArray;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.StandardOpenOption;
 
 public class InteractionLogger {
 
@@ -35,8 +37,8 @@ public class InteractionLogger {
 
         // content_generated
         JSONObject contentGenerated = new JSONObject();
-        contentGenerated.put("input_prompt", inputPrompt);
-        contentGenerated.put("response", response);
+        contentGenerated.put("input_prompt", new String(inputPrompt.getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8));
+        contentGenerated.put("response", new String(response.getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8));
         log.put("content_generated", contentGenerated);
 
         // user_feedback
@@ -64,7 +66,8 @@ public class InteractionLogger {
         try {
             JSONArray logs;
             if (Files.exists(Paths.get(LOG_FILE))) {
-                String content = new String(Files.readAllBytes(Paths.get(LOG_FILE)));
+                byte[] encodedContent = Files.readAllBytes(Paths.get(LOG_FILE));
+                String content = new String(encodedContent, StandardCharsets.UTF_8);
                 logs = new JSONArray(content);
             } else {
                 logs = new JSONArray();
@@ -72,9 +75,9 @@ public class InteractionLogger {
 
             logs.put(logEntry);
 
-            try (FileWriter file = new FileWriter(LOG_FILE)) {
-                file.write(logs.toString(2));
-            }
+            String jsonString = logs.toString(2);
+            byte[] jsonBytes = jsonString.getBytes(StandardCharsets.UTF_8);
+            Files.write(Paths.get(LOG_FILE), jsonBytes, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
         }

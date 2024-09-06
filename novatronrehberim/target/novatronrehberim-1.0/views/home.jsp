@@ -10,7 +10,7 @@
     <title>Novatron Rehberim</title>
 
     <!-- Custom styles for this template -->
-    <link href="styles.css" rel="stylesheet">
+    <link href="webapp/resources/styles.css" rel="stylesheet">
   </head>
 
   <body>

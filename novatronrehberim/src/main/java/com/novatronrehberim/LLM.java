@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
@@ -14,7 +13,7 @@ import java.util.Scanner;
 public class LLM {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+   /*  public static void main(String[] args) {
         try {
             while (true) {
                 int choice = getUserChoice();
@@ -35,7 +34,7 @@ public class LLM {
             scanner.close();
         }
     }
-
+*/
     private static int getUserChoice() {
         System.out.println("\nYKS Çalışma Programına Hoş geldiniz!");
         System.out.println("1. ChatBot olarak kullanın");
@@ -156,7 +155,7 @@ public class LLM {
         JSONArray jsonData = new JSONArray()
             .put(new JSONObject()
                 .put("role", "system")
-                .put("content", "Sen bir fizik öğretmeni asistansın. Öğrencilere yönelik sorular hazırlayacaksın."))
+                .put("content", "Sen bir lise fizik öğretmeni asistansın. Öğrencilere yönelik sorular hazırlayacaksın."))
             .put(new JSONObject()
                 .put("role", "user")
                 .put("content", prompt));

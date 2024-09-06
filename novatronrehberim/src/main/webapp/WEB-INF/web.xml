@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_9" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<display-name>Novatron Rehberim</display-name>
+	
+	<servlet>
+		<servlet-name>HomeController</servlet-name>
+		<servlet-class>com.novatronrehberim.controllers.HomeController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AskController</servlet-name>
+		<servlet-class>com.novatronrehberim.controllers.AskController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ScheduleController</servlet-name>
+		<servlet-class>com.novatronrehberim.controllers.ScheduleController</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>HomeController</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AskController</servlet-name>
+		<url-pattern>/ask</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ScheduleController</servlet-name>
+		<url-pattern>/schedule</url-pattern>
+	</servlet-mapping>
+</web-app>

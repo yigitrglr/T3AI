@@ -1,16 +1,19 @@
 package com.novatronrehberim;
 
 import java.util.Scanner;
+import java.net.URI;
+import org.json.JSONObject;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.net.URI;
-import org.json.JSONObject;
+
+
 
 public class App {
     private static final String AI_API_URL = "https://inference2.t3ai.org/v1/completions";
     // private static final String API_KEY = "t3ai";
 
+    /* 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // başlangıçta 2 seçenek olsun hem plan oluşturma hem de chatbot
@@ -31,7 +34,7 @@ public class App {
 
         scanner.close();
     }
-
+*/
     private static void createStudyProgram(Scanner scanner) {
         System.out.print("Çalışmak istediğiniz dersi giriniz: ");
         String subject = scanner.nextLine();
@@ -43,7 +46,7 @@ public class App {
         int duration = scanner.nextInt();
 
         String prompt = String.format(
-                "Lütfen sınıf seviyesinde %s dersi için sınıf %s seviyesinde %d haftalık detaylı bir tablo şeklinde çalışma programı oluşturun. Türkiye Cumhuriyeti Milli Eğitim Bakanlığının eğitim müfredatına göre hazırla."
+                "Lütfen %s dersi için sınıf %s seviyesinde %d haftalık detaylı bir tablo şeklinde çalışma programı oluşturun. Türkiye Cumhuriyeti Milli Eğitim Bakanlığının eğitim müfredatına göre hazırla."
                         + "Lütfen programı maddeler halinde, açık ve anlaşılır bir şekilde yazın.",
                 subject, level, duration);
         // String prompt = String.format("Sen bir lise fizik öğretmenisin ve

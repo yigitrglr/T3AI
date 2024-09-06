@@ -10,25 +10,33 @@
 		<servlet-class>com.novatronrehberim.controllers.HomeController</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>AskController</servlet-name>
-		<servlet-class>com.novatronrehberim.controllers.AskController</servlet-class>
+		<servlet-name>AlphabetController</servlet-name>
+		<servlet-class>com.novatronrehberim.controllers.AlphabetController</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>ScheduleController</servlet-name>
-		<servlet-class>com.novatronrehberim.controllers.ScheduleController</servlet-class>
+		<servlet-name>MathController</servlet-name>
+		<servlet-class>com.novatronrehberim.controllers.MathController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>JobsController</servlet-name>
+		<servlet-class>com.novatronrehberim.controllers.JobsController</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>HomeController</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/home</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>AskController</servlet-name>
-		<url-pattern>/ask</url-pattern>
+		<servlet-name>AlphabetController</servlet-name>
+		<url-pattern>/alphabet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>ScheduleController</servlet-name>
-		<url-pattern>/schedule</url-pattern>
+		<servlet-name>MathController</servlet-name>
+		<url-pattern>/math</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>JobsController</servlet-name>
+		<url-pattern>/jobs</url-pattern>
 	</servlet-mapping>
 	
 	<jsp-config>

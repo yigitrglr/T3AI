@@ -30,12 +30,10 @@ public class TextToSpeech {
                 try (FileOutputStream fos = new FileOutputStream(outputFilePath)) {
                     fos.write(response.getBody());
                 }
-                System.out.println("Speech generated successfully and saved to: " + outputFilePath);
-            } else {
-                System.err.println("Error generating speech: " + response.getStatus() + " " + response.getStatusText());
-            }
+                
+            } 
         } catch (Exception e) {
-            System.err.println("Error generating speech: " + e.getMessage());
+
         }
     }
 
@@ -43,7 +41,7 @@ public class TextToSpeech {
         TextToSpeech tts = new TextToSpeech();
         
         String textToSpeak = txt;
-        String outputFilePath = "output.mp3";
+        String outputFilePath = System.getProperty("java.io.tmpdir") + "/output.mpeg";
         tts.generateSpeech(textToSpeak, outputFilePath);
     }
 }

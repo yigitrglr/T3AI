@@ -37,13 +37,10 @@ public class AIService {
         JSONArray jsonData = new JSONArray()
             .put(new JSONObject()
                 .put("role", "system")
-                .put("content", "Sen bir ilkokul öğretmenisin. Çocuklara; sayıları, matematiği ve alfabeyi onların anlayacağı ve seveceği şekilde  anlatan bir yapay zekâ modelisin. Zor konuları hikâyeleştirirek öğrenimi kolaylaştırırsın."))
-            .put(new JSONObject()
-                .put("role", "assistant")
-                .put("content", String.format("Şu an öğrencilere anlatacağın konu %s üzerine olacaktır.", category)))
+                .put("content", "Sen bir ilkokul öğretmenisin. Çocuklara; sayıları, matematiği ve alfabeyi onların anlayacağı ve seveceği şekilde anlatan bir yapay zekâ modelisin. Zor konuları hikâyeleştirirek öğrenimi kolaylaştırırsın."))
             .put(new JSONObject()
                 .put("role", "user")
-                .put("content", String.format("%s konusunu ilk okul çocuklarının anlayabileceği şekilde hikâyeleştir.", question)));
+                .put("content", String.format("%s'de %s konusunu ilk okul çocuklarının anlayabileceği şekilde öyküleştirerek anlat.", category, question)));
             return getLLMResponse(jsonData);
     }
 

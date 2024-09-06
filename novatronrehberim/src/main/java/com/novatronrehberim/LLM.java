@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class LLM {
     private static final Scanner scanner = new Scanner(System.in);
-
+    // Seçenek sistemi
     public static void main(String[] args) {
         try {
             while (true) {
@@ -51,6 +51,7 @@ public class LLM {
     conn.setRequestProperty("Content-Type", "application/json");
     conn.setDoOutput(true);
 
+    // Türkçeden dolayı UTF-8 charset
     try (OutputStream os = conn.getOutputStream()) {
         byte[] input = payload.getBytes(StandardCharsets.UTF_8);
         os.write(input, 0, input.length);
@@ -89,7 +90,7 @@ public class LLM {
         String testQuestions = getPhysicsTest(prompt);
         System.out.println("Fizik Testi:\n" + testQuestions);
 
-        // Doğru cevapları bulma
+        // Soruları hazırlama
         String[] questions = testQuestions.split("\n\n");
         String[] correctAnswers = new String[21];
         for (int i = 0; i < questions.length; i++) {
@@ -116,7 +117,7 @@ public class LLM {
 
         System.out.println("Skorunuz 21 üzerinden: " + score);
     }
-    // soruların doğru veya yanlış olmasını kontrol etme
+    // Soruların doğru veya yanlış olmasını kontrol etme
     private static class AnswerResult {
         boolean isCorrect;
         String correctAnswer;
@@ -140,7 +141,8 @@ public class LLM {
 
         return new AnswerResult(isCorrect, correctAnswer);
     }
-
+    
+    // Cevaplar için
     private static String getChatbotResponse(String question) {
         JSONArray jsonData = new JSONArray()
             .put(new JSONObject()
@@ -152,7 +154,7 @@ public class LLM {
 
         return getLLMResponse(jsonData);
     }
-
+    // Sorular için
     private static String getPhysicsTest(String prompt) {
         JSONArray jsonData = new JSONArray()
             .put(new JSONObject()
@@ -164,7 +166,7 @@ public class LLM {
 
         return getLLMResponse(jsonData);
     }
-    // LLM Settings
+    // LLM Ayarları
     private static String getLLMResponse(JSONArray jsonData) {
         try {
             String specialFormatOutput = convertToSpecialFormat(jsonData);

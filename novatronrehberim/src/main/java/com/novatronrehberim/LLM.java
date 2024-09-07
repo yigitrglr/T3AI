@@ -38,9 +38,9 @@ public class LLM {
     }
 
     public static int getUserChoice() {
-        System.out.println("\nYKS Çalışma Programına Hoş geldiniz!");
+        System.out.println("\nDers Çalışma Programına Hoş geldiniz!");
         System.out.println("1. ChatBot olarak kullanın");
-        System.out.println("2. YKS Ders Programı");
+        System.out.println("2. YKS Fizik testi oluşturma");
         System.out.println("3. Çıkış");
         System.out.print("Seçeneklerden birini seçin (1, 2, veya 3): ");
         return scanner.nextInt();
@@ -71,7 +71,7 @@ public class LLM {
     // ChatBot
     public static void runChatbot() {
         scanner.nextLine();
-        String userId = generateUserId(); // Implement this method to generate a unique user ID
+        String userId = generateUserId();
         long startTime = System.currentTimeMillis();
         
         while (true) {
@@ -90,8 +90,7 @@ public class LLM {
             InteractionLogger.FeedbackMetadata metadata = getFeedbackMetadata(startTime);
             JSONObject log = InteractionLogger.logInteraction(userId, encodedQuestion, encodedResponse, feedback, metadata);
             
-            // Here you would typically send this log to a database or file
-            System.out.println("Interaction logged: " + log.toString(2));
+            // System.out.println("Etkileşim loglandı: " + log.toString(2));
         }
     }
 
@@ -229,19 +228,19 @@ public class LLM {
     }
 
     public static InteractionLogger.UserFeedback getUserFeedback() {
-        System.out.print("Rate the response (like/dislike): ");
+        System.out.print("Cevabı değerlendirin: (like/dislike): ");
         String rating = scanner.nextLine().toLowerCase();
         
         InteractionLogger.UserFeedback feedback = new InteractionLogger.UserFeedback();
         feedback.setRating(rating);
         
         if (rating.equals("dislike")) {
-            System.out.print("Please provide your preferred response: ");
+            System.out.print("Tercih edilen cevabı giriniz: ");
             String preferredResponse = scanner.nextLine();
             feedback.setPreferredResponse(preferredResponse);
         }
         
-        System.out.print("Any additional feedback? ");
+        System.out.print("Eklemek istediğiniz başka bir şey? ");
         String feedbackText = scanner.nextLine();
         feedback.setFeedbackText(feedbackText);
         
@@ -252,10 +251,14 @@ public class LLM {
         InteractionLogger.FeedbackMetadata metadata = new InteractionLogger.FeedbackMetadata();
         metadata.setDevice(getDeviceType());
         metadata.setLocation("bilinmyen");
-        metadata.setSessionDuration((System.currentTimeMillis() - startTime) / 1000); // Duration in seconds
+        metadata.setSessionDuration((System.currentTimeMillis() - startTime) / 1000); // saniye şeklinde
         return metadata;
     }
 
+    // to-do zaman kalırsa lokasyon almaya çalış.
+
+
+    // cihaz algılama
     private static String getDeviceType() {
         String os = System.getProperty("os.name").toLowerCase();
         if (os.contains("win")) {

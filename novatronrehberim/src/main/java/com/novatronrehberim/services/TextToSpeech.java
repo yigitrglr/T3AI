@@ -32,12 +32,12 @@ public class TextToSpeech {
                 try (FileOutputStream fos = new FileOutputStream(outputFilePath)) {
                     fos.write(response.getBody());
                 }
-                System.out.println("Speech generated successfully and saved to: " + outputFilePath);
+                System.out.println("TTS şuraya kaydedildi: " + outputFilePath);
             } else {
-                System.err.println("Error generating speech: " + response.getStatus() + " " + response.getStatusText());
+                System.err.println("TTS oluştururken bir hata meydana geldi: " + response.getStatus() + " " + response.getStatusText());
             }
         } catch (Exception e) {
-            System.err.println("Error generating speech: " + e.getMessage());
+            System.err.println("TTS oluştururken bir hata meydana geldi: " + e.getMessage());
         }
     }
 }

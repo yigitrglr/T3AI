@@ -26,6 +26,7 @@
           <form action="alphabet" method="POST">
           <p id="input-lbl" class="text">Harfinizi giriniz:</p>
           <input type="text" id="letters" name="letter" maxlength="1" required>
+          <input type="hidden" id="userId" name="userId" value="${userId}"> <!-- delete if necessery-->>
           <div id="buttons">
             <button type="submit" id="create-story-btn" class="text">Öykü Yaz</button>
             <button type="button" id="clear-story-btn" class="text">Ekranı Sil</button>

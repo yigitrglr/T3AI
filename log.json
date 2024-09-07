@@ -106,24 +106,5 @@
         },
         "interaction_id": "cf8ef8c1-f515-4c1e-b324-497f521272a7",
         "timestamp": "2024-09-06T20:32:40.236266700Z"
-    },
-    {
-        "user_feedback": {
-            "preferred_response": "Size bu bilgiyi veremem",
-            "rating": "dislike",
-            "feedback_text": ""
-        },
-        "content_generated": {
-            "input_prompt": "Bug�n hava nas�l?",
-            "response": "Bugün hava güneşli ve sıcak, 25 derece civarında."
-        },
-        "user_id": "46c58257-ab55-41d3-9ca3-10ed78eeb93d",
-        "feedback_metadata": {
-            "location": "bilinmyen",
-            "device": "win-desktop",
-            "session_duration": 28
-        },
-        "interaction_id": "55bd17be-4548-404a-9f74-6c2ccb95bfd0",
-        "timestamp": "2024-09-07T00:21:51.218441200Z"
     }
 ]

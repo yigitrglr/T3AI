@@ -25,10 +25,10 @@
         <div id="input-box">
           <form action="alphabet" method="POST">
           <p id="input-lbl" class="text">Harfinizi giriniz:</p>
-          <input type="text" name="letter">
+          <input type="text" id="letters" name="letter" maxlength="1" required>
           <div id="buttons">
-            <button type="submit" id="create-story-btn" class="text">Öykü Yaz</submit>
-            <button id="clear-story-btn" class="text">Ekranı Sil</button>
+            <button type="submit" id="create-story-btn" class="text">Öykü Yaz</button>
+            <button type="button" id="clear-story-btn" class="text">Ekranı Sil</button>
           </div>
         </div>
       </form>
@@ -37,9 +37,26 @@
             <source src="${pageContext.request.contextPath}/resources/audio/output.mpeg?timestamp=${System.currentTimeMillis()}" type="audio/mpeg">
           </audio>
 
-          <p><%= request.getAttribute("aiResponse") %></p>
+          <p id="story-display"><%= request.getAttribute("aiResponse") %></p>
         </div>
       </div>
     </div>
+
+    <script>
+      // Clear the paragraph when the "Ekranı Sil" button is clicked
+      document.getElementById('clear-story-btn').addEventListener('click', function() {
+        document.getElementById('story-display').innerText = '';
+      });
+
+      // Limit input to one letter and convert to uppercase
+      document.getElementById('letters').addEventListener('input', function() {
+        let inputValue = this.value;
+        if (/[^a-zA-Z]/.test(inputValue)) {
+          this.value = '';  // Remove invalid input
+        } else {
+          this.value = inputValue.toUpperCase();  // Convert to uppercase
+        }
+      });
+    </script>
   </body>
 </html>

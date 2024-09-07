@@ -27,11 +27,7 @@
           <button class="btn" id="alphabet-btn">Alfabe</button>
         </a>
         <a href="math">
-          <button class="btn" id="math-btn">Matematik</button>
-        </a>
-        <a href="jobs">
-          <button class="btn" id="job-btn">Meslek</button>
-        </a>
+          <button class="btn" id="rapor-btn">Raporlar</button>
         </a>
       </div>
     </div>

@@ -131,7 +131,7 @@ public class LLM {
 
         System.out.println("Skorunuz 21 üzerinden: " + score);
     }
-    // Soruların doğru veya yanlış olmasını kontrol etme
+    // Soruların doğru veya yanlış olmasını kontrol etmekte
     public static class AnswerResult {
         public boolean isCorrect;
         public String correctAnswer;

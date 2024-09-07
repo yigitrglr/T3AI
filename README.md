@@ -3,10 +3,6 @@
 # Novatron Rehberim
 ## Çocukların okuma becerilerini kalıcı ve işitsel olarak geliştirmesi için sunulan bir sesli öykü okuma platformu.
 
-````
-
-````
-
 ## Novatron Programmers: 2322074
 - 👤 Üye 1:  [Ulus Ata ASLAN](https://www.github.com/ulusata)
 

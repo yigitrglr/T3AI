@@ -3,6 +3,8 @@ package com.novatronrehberim.services;
 import kong.unirest.HttpResponse;
 import kong.unirest.Unirest;
 import kong.unirest.json.JSONObject;
+
+import java.io.File;
 import java.io.FileOutputStream;
 
 public class TextToSpeech {
@@ -37,13 +39,5 @@ public class TextToSpeech {
         } catch (Exception e) {
             System.err.println("TTS oluştururken bir hata meydana geldi: " + e.getMessage());
         }
-    }
-
-    public static void main(String[] args){
-        TextToSpeech tts = new TextToSpeech();
-        int sayi = 1;
-        String textToSpeak = "merhaba ben onur can";
-        String outputFilePath = "output" + ++sayi + ".mp3";
-        tts.generateSpeech(textToSpeak, outputFilePath);
     }
 }

@@ -26,6 +26,7 @@
           <form action="alphabet" method="POST">
           <p id="input-lbl" class="text">Harfinizi giriniz:</p>
           <input type="text" id="letters" name="letter" maxlength="1" required>
+          <input type="hidden" id="userId" name="userId" value="${userId}"> <!-- delete if necessery-->>
           <div id="buttons">
             <button type="submit" id="create-story-btn" class="text">Öykü Yaz</button>
             <button type="button" id="clear-story-btn" class="text">Ekranı Sil</button>
@@ -43,18 +44,16 @@
     </div>
 
     <script>
-      // Clear the paragraph when the "Ekranı Sil" button is clicked
       document.getElementById('clear-story-btn').addEventListener('click', function() {
         document.getElementById('story-display').innerText = '';
       });
 
-      // Limit input to one letter and convert to uppercase
       document.getElementById('letters').addEventListener('input', function() {
         let inputValue = this.value;
         if (/[^a-zA-Z]/.test(inputValue)) {
-          this.value = '';  // Remove invalid input
+          this.value = '';
         } else {
-          this.value = inputValue.toUpperCase();  // Convert to uppercase
+          this.value = inputValue.toUpperCase();
         }
       });
     </script>

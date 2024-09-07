@@ -124,5 +124,23 @@
         },
         "interaction_id": "2b3747ec-101d-4846-9510-2781871f9963",
         "timestamp": "2024-09-07T06:52:57.046907500Z"
+    },
+    {
+        "user_feedback": {
+            "rating": "like",
+            "feedback_text": ""
+        },
+        "content_generated": {
+            "input_prompt": "Ankara nerede?",
+            "response": "Ankara, Türkiye'nin başkentidir ve İç Anadolu Bölgesi'nde yer almaktadır."
+        },
+        "user_id": "9a1fe6d5-3551-4cfd-a6af-13579ff843cd",
+        "feedback_metadata": {
+            "location": "bilinmyen",
+            "device": "win-desktop",
+            "session_duration": 13
+        },
+        "interaction_id": "27672797-1420-4393-97a9-c2986b761525",
+        "timestamp": "2024-09-07T08:47:59.466203600Z"
     }
 ]

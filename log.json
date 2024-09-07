@@ -106,5 +106,23 @@
         },
         "interaction_id": "cf8ef8c1-f515-4c1e-b324-497f521272a7",
         "timestamp": "2024-09-06T20:32:40.236266700Z"
+    },
+    {
+        "user_feedback": {
+            "rating": "like",
+            "feedback_text": ""
+        },
+        "content_generated": {
+            "input_prompt": "Hackathon nedir?",
+            "response": "Bir hackathon, yazılım geliştiricileri, tasarımcıları ve diğer teknoloji uzmanlarını genellikle 24 ila 48 saat boyunca süren yoğun bir programda yeni teknolojiler veya ürünler oluşturmak için bir araya getiren bir etkinliktir. Katılımcılar, belirlenen bir tema veya problem etrafında çalışarak yenilikçi çözümler üretmeye çalışır. Hackathonlar, yaratıcılığı teşvik etmek, işbirliğini artırmak ve hızlı prototipleme yeteneklerini geliştirmek amacıyla düzenlenir. Bu tür etkinlikler genellikle üniversiteler, şirketler veya topluluk merkezleri tarafından organize edilir ve katılımcılara teknik destek, mentorluk ve bazen de ödüller sunar."
+        },
+        "user_id": "e2177264-d992-4b2b-8a03-ad3e5f55d728",
+        "feedback_metadata": {
+            "location": "bilinmyen",
+            "device": "win-desktop",
+            "session_duration": 122
+        },
+        "interaction_id": "2b3747ec-101d-4846-9510-2781871f9963",
+        "timestamp": "2024-09-07T06:52:57.046907500Z"
     }
 ]

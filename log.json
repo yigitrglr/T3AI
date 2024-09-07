@@ -88,5 +88,42 @@
         },
         "interaction_id": "e031b78b-db6f-4e90-b71c-09df013da287",
         "timestamp": "2024-09-06T19:12:19.470352Z"
+    },
+    {
+        "user_feedback": {
+            "rating": "like",
+            "feedback_text": ""
+        },
+        "content_generated": {
+            "input_prompt": "Bana basit trigonometri anlat",
+            "response": "Trigonometri, üçgenlerin kenarları ile açıları arasındaki ilişkiyi inceleyen matematik dalıdır. Temel trigonometrik fonksiyonlar sinüs, kosinüs ve tanjanttır. Bu fonksiyonlar, dik üçgenlerde karşı kenarın hipotenüse oranı (sinüs), komşu kenarın hipotenüse oranı (kosinüs) ve karşı kenarın komşu kenara oranı (tanjant) olarak tanımlanır.\n\nSinüs ve kosinüs fonksiyonlarının değerleri 0 ila 1 arasında değişirken, tanjant fonksiyonunun değeri sonsuz olabilir. Sinüs ve kosinüs fonksiyonları periyodik olup, her 2π radyanda tekrar ederler. Tanjant fonksiyonu ise tek bir periyoda sahiptir.\n\nTrigonometri, mühendislikten fiziğe, mimariden ekonomiye kadar birçok alanda kullanılır. Örneğin, bir binanın yüksekliğini veya bir köprünün uzunluğunu hesaplamak için kullanılabilir. Ayrıca, dalgaların hareketini analiz etmek ve ses dalgalarının frekansını belirlemek gibi fiziksel olayların incelenmesinde de önemlidir."
+        },
+        "user_id": "07a0b9ae-cf00-4f00-9d91-e27260c36e53",
+        "feedback_metadata": {
+            "location": "bilinmyen",
+            "device": "win-desktop",
+            "session_duration": 270
+        },
+        "interaction_id": "cf8ef8c1-f515-4c1e-b324-497f521272a7",
+        "timestamp": "2024-09-06T20:32:40.236266700Z"
+    },
+    {
+        "user_feedback": {
+            "preferred_response": "Size bu bilgiyi veremem",
+            "rating": "dislike",
+            "feedback_text": ""
+        },
+        "content_generated": {
+            "input_prompt": "Bug�n hava nas�l?",
+            "response": "Bugün hava güneşli ve sıcak, 25 derece civarında."
+        },
+        "user_id": "46c58257-ab55-41d3-9ca3-10ed78eeb93d",
+        "feedback_metadata": {
+            "location": "bilinmyen",
+            "device": "win-desktop",
+            "session_duration": 28
+        },
+        "interaction_id": "55bd17be-4548-404a-9f74-6c2ccb95bfd0",
+        "timestamp": "2024-09-07T00:21:51.218441200Z"
     }
 ]

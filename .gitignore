@@ -4,6 +4,9 @@
 # Log file
 *.log
 
+# Audio file
+*.mpeg
+
 # BlueJ files
 *.ctxt
 

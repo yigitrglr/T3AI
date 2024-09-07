@@ -43,18 +43,16 @@
     </div>
 
     <script>
-      // Clear the paragraph when the "Ekranı Sil" button is clicked
       document.getElementById('clear-story-btn').addEventListener('click', function() {
         document.getElementById('story-display').innerText = '';
       });
 
-      // Limit input to one letter and convert to uppercase
       document.getElementById('letters').addEventListener('input', function() {
         let inputValue = this.value;
         if (/[^a-zA-Z]/.test(inputValue)) {
-          this.value = '';  // Remove invalid input
+          this.value = '';
         } else {
-          this.value = inputValue.toUpperCase();  // Convert to uppercase
+          this.value = inputValue.toUpperCase();
         }
       });
     </script>
